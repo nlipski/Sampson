@@ -1,0 +1,54 @@
+
+{% load static %}
+
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<meta name = "viewport" content= "width=device-width, initial-scale: 1.0, user-scaleable: 0" />
+<head>
+
+  <title>{% block title %}Bank of EngSoc {% endblock %}</title>
+</head>
+
+<body>
+  <div id="header">
+    <div class="title">
+      
+      <a href="#">Bank of EngSoc</a></div>
+    
+    
+    
+  </div>
+  <a class="mobile" href="#">
+    MENU
+  </a>
+  <div id="container">
+    <div class="sidebar">
+        <h2 id = "OrgName">{{user.name}}</h2>
+      <ul id="nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/financials">My Financials </a></li>
+        <li><a href="#"> Pre-approvals</a></li>
+        <li><a href="#"> Reinbursements </a></li>
+        <li><a href="/rentals"> Rentals</a></li>
+        <li><a href="#">Documentation </a></li>
+        <li><a href="/support">Support </a></li>
+        <li><a href="#">Contact Us </a></li>
+    <li><a href="/logout">Logout </a></li>
+      </ul>
+    </div>
+	{% block content %}
+    <div class="content">
+      <h1>DASHBOARD</h1>
+      <p> Here you can do stuff</p>
+
+      <div id="box">
+        <div class="box-top">News</div>
+        <div class="box-panel">
+          This is some simple news lalala
+        </div>
+      </div>
+    </div>
+	{% endblock %}
+</body>
+
+</html>

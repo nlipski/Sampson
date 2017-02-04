@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}MainPage{% endblock %}
+	{% block content %}
+<div class="content">
+
+<div class="table-title">
+<h1 id="table-title">My Cabinet</h1>
+</div>
+
+<h2 id="purpletext"> Clients: </h2>
+
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">UID</th>
+<th class="text-left">Name</th>
+<th class="text-left">Lastname</th>
+<th class="text-left">Number of Medications</th>
+<th class="text-left">Frequency of Intake</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+{% if clients %}
+{% for client in clients %}
+<tr>
+<td class="text-left">{{client.uid}}</td>
+<td class="text-left">{{client.name}}</td>
+<td class="text-left"> {{client.lastname}}</td>
+<td class="text-left">{{client.numOfMed}}</td>
+<td class="text-left">{{client.freqOfIntake}}</td>
+</tr>
+{% endfor %}
+{% else %}
+<tr>
+<td class="text-left">none</td>
+<td class="text-left">none</td>
+<td class="text-left">none</td>
+<td class="text-left">none</td>
+<td class="text-left">none</td>
+</tr>
+{% endif %}
+</tbody>
+</table>
+
+
+
+
+ </div>
+	{% endblock %}
