@@ -33,3 +33,17 @@ def home(request):
 		return render(request,'MyFinancials.html',context)
 	else:
 		return render(request,'registration/login.html',{})
+def timer(sc):
+        now = timezone.now()
+        
+        alarms= Alert.objects.all()
+        establishConnection()
+        for a in alarms:
+                if (a.intake <= now):
+                        return a
+                
+
+def establishConnection():
+       r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+       print(r.status_code)
+        
