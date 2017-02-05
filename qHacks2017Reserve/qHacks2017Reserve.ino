@@ -37,7 +37,7 @@ byte GlobalEmpty = 0;
 byte bit0 = 1, bit1 = 0, bit2 = 0, bit3 = 0, bit4 = 0, bit5 = 0, bit6 = 0, bit7 = 0;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(IN1, OUTPUT); 
   pinMode(IN2, OUTPUT); 
   pinMode(IN3, OUTPUT); 
@@ -60,71 +60,35 @@ void setup() {
 }
 
 void loop() {
-  lcd.setColor(1);
-  lcd.clear();
+  lcd.setColor(3);
   lcd.setCursor(3,0);
+  lcd.clear();
   lcd.print("WAITING");
   delay(3000);
-  lcd.setColor(2);
-  while(!(!bit5 && bit4 && bit3 && bit2 && bit1 && bit0)){
-    delay(1);
-    bit0 = digitalRead(2);
-    bit1 = digitalRead(3);
-    bit2 = digitalRead(4);
-    bit3 = digitalRead(5);
-    bit4 = digitalRead(6);
-    bit5 = digitalRead(7);  
-          Serial.print(bit0);
-        Serial.print(bit1);
-            Serial.print(bit2);
-                Serial.print(bit3);    
-                Serial.print(bit4);
-                    Serial.println(bit5);   
-
+  lcd.setRGB(0,0,0);
+  while(!digitalRead(6)){
+      delay(1);
   }
+  lcd.setColor(0);
   lcd.setCursor(1,0);
   lcd.clear();
   lcd.print("INCOMING DATA");
   delay(1500);
 
-  bit0 = digitalRead(2);
-  bit1 = digitalRead(3);
-  bit2 = digitalRead(4);
-  bit3 = digitalRead(5);
-  bit4 = digitalRead(6);
-  bit5 = digitalRead(7); 
 
-
-  bitWrite(pillIden, 0, bit0);
-  bitWrite(pillIden, 1, bit1);
-  bitWrite(pillNum, 0, bit2);
-  bitWrite(pillNum, 1, bit3);
-  bitWrite(pillNum, 2, bit4);
-  //Serial.print("------------------------");
-  //Serial.print(pillIden);
-  //Serial.print("  ");
-  //Serial.print(pillNum);
-  //Serial.print("  ");
-  //Serial.println(bit5);
   
-  if(bit5 == 1 && pillNum == 0){ // is pills empty?
-    if(GlobalEmpty == 1){
-      digitalWrite(12,HIGH);
-      digitalWrite(13,HIGH);
-      delay(5000);
-    }
-  }
-  else if(bit5){
+ 
+    lcd.clear();
     lcd.setCursor(2,0);
     lcd.print("Time to take");
     lcd.setCursor(2,1);
     lcd.print("your pills.");
     delay(5000);
-    int testing = dispense1(pillNum);
-    displayDispense(testing, pillNum);
+    int testing = dispense1(1);
+    displayDispense(testing, 1);
     if (testing >= 0)
       GlobalEmpty = 1;
-  }
+  
 }
 
 int dispense1(int amount){ // returns -1 if dispensed correctly
