@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.template.context_processors import csrf
 from django.template import RequestContext
 from django.shortcuts import render
+import requests,time
 from .models import Client, Medication, Alert
 # Create your views here.
 
@@ -33,3 +34,23 @@ def home(request):
 		return render(request,'MyFinancials.html',context)
 	else:
 		return render(request,'registration/login.html',{})
+
+def aboutUs(request):
+        if request.user.is_authenticated():
+		return render(request,'aboutUs.html',context)
+	else:
+		return render(request,'registration/login.html',{})
+def timer(sc):
+        now = timezone.now()
+        
+        alarms= Alert.objects.all()
+        establishConnection()
+        for a in alarms:
+                if (a.intake <= now):
+                        return a
+                
+
+def establishConnection():
+       r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+       print(r.status_code)
+        

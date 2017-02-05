@@ -12,10 +12,23 @@
 .title h1 {
   position: relative;
   top: 18px;
-  color: #c0c0c0;
+  color: #f2f2f2;
   font-family: "Open Sans"
 }
 
+.title h2 {
+  position: relative;
+  top: 0px;
+  color: #083463;
+  font-family: "Open Sans"
+}
+
+.title h3 {
+  position: relative;
+  top: 0px;
+  color: #0e283a;
+  font-family: "Open Sans"
+}
 
 .login-page {
   width: 360px;
@@ -33,6 +46,9 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+.form:before, .form:after .form:left .form:right{
+  padding: 30px 45px 45px 45px;
+}
 .form input {
   font-family: "Open Sans", sans-serif;
   outline: 0;
@@ -48,7 +64,7 @@
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #5a0da3;
+  background: #1a6abf;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -59,7 +75,7 @@
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #6e4594;
+  background: #457394;
 }
 .form .message {
   margin: 15px 0 0;
@@ -109,11 +125,11 @@
 body {
 	width: 100%;
 	height: 100%;
- background: #6e4594;  fallback for old browsers 
-  background: -webkit-linear-gradient(right, #6e4594, #5a0da3);
-  background: -moz-linear-gradient(right, #6e4594, #5a0da3);
-  background: -o-linear-gradient(right, #6e4594, #5a0da3);
-  background: linear-gradient(to left, #6e4594, #5a0da3);
+ background: #328ed1;  fallback for old browsers 
+  background: -webkit-linear-gradient(right, #457394, #0c55a2);
+  background: -moz-linear-gradient(right, #457394, #0c55a2);
+  background: -o-linear-gradient(right, #457394, #0c55a2);
+  background: linear-gradient(to left, #457394, #0c55a2);
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      

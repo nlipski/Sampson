@@ -5,15 +5,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
 <meta name = "viewport" content= "width=device-width, initial-scale: 1.0, user-scaleable: 0" />
 <head>
-
-  <title>{% block title %}Bank of EngSoc {% endblock %}</title>
+  <title> {% block title %} Sampson {% endblock %} </title>
 </head>
 
 <body>
-  <div id="header">
+  <div id="header"> 
     <div class="title">
-      
-      <a href="#">Bank of EngSoc</a></div>
+      <img class="header-image" src="https://static.wixstatic.com/media/25e479_d18ac1339053490688b86374b0948479~mv2.png/v1/fill/w_600,h_600,al_c,usm_0.66_1.00_0.01/25e479_d18ac1339053490688b86374b0948479~mv2.png" alt="Sampson" title="Sampson">
+      <a href="#">Sampson</a></div>
     
     
     
@@ -26,12 +25,8 @@
         <h2 id = "OrgName">{{user.name}}</h2>
       <ul id="nav">
         <li><a href="/home">Home</a></li>
-        <li><a href="/financials">My Financials </a></li>
-        <li><a href="#"> Pre-approvals</a></li>
-        <li><a href="#"> Reinbursements </a></li>
-        <li><a href="/rentals"> Rentals</a></li>
-        <li><a href="#">Documentation </a></li>
-        <li><a href="/support">Support </a></li>
+        <li><a href="/home">My Patients </a></li>
+        <li><a href="/admin"> Update Info</a></li>
         <li><a href="#">Contact Us </a></li>
     <li><a href="/logout">Logout </a></li>
       </ul>
