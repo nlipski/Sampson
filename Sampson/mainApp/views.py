@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.template.context_processors import csrf
 from django.template import RequestContext
 from django.shortcuts import render
+import requests,time
 from .models import Client, Medication, Alert
 # Create your views here.
 
@@ -31,6 +32,12 @@ def home(request):
 	context={'clients':clients}
 	if request.user.is_authenticated():
 		return render(request,'MyFinancials.html',context)
+	else:
+		return render(request,'registration/login.html',{})
+
+def aboutUs(request):
+        if request.user.is_authenticated():
+		return render(request,'aboutUs.html',context)
 	else:
 		return render(request,'registration/login.html',{})
 def timer(sc):
