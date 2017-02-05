@@ -7,9 +7,9 @@ Jordan O'Neill
 
 */
 
-#include <Wire.h>
-#include "rgb_lcd.h"
-#include <Servo.h>
+#include "Wire.h"
+#include <rgb_lcd.h>
+#include "Servo.h"
 
 Servo drug1;
 rgb_lcd lcd;
@@ -31,6 +31,7 @@ void setup() {
   lcd.print("Welcome to");
   lcd.setCursor(4,1);
   lcd.print("Sampson!");
+
   delay(1000);
 }
 
